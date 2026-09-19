@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">◇</span>
+      <div>
+        <h1>TaskFlow</h1>
+        <p class="brand-sub">board reativo — bubbling · delegation · event loop · observer</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <label class="search-field">
+        <span class="sr-only">Buscar tarefas</span>
+        <input type="search" placeholder="Buscar tarefas…" />
+      </label>
+      <button class="btn-primary" type="button">+ Nova tarefa</button>
+    </div>
+  </header>
+
+  <main class="board" aria-label="Quadro de tarefas">
+
+    <section class="column" data-status="todo">
+      <header class="column-header">
+        <h2>To Do</h2>
+        <span class="count-badge">3</span>
+      </header>
+      <div class="card-list">
+
+        <article class="task-card" data-task-id="1">
+          <p class="task-title">Modelar EventBus.js</p>
+          <p class="task-meta">core · Observer Pattern</p>
+          <div class="task-actions">
+            <button type="button" data-action="complete" aria-label="Completar tarefa">✓</button>
+            <button type="button" data-action="edit" aria-label="Editar tarefa">✎</button>
+            <button type="button" data-action="delete" aria-label="Excluir tarefa">✕</button>
+          </div>
+        </article>
+
+        <article class="task-card" data-task-id="2">
+          <p class="task-title">Escrever TaskService fake</p>
+          <p class="task-meta">services · Event Loop</p>
+          <div class="task-actions">
+            <button type="button" data-action="complete" aria-label="Completar tarefa">✓</button>
+            <button type="button" data-action="edit" aria-label="Editar tarefa">✎</button>
+            <button type="button" data-action="delete" aria-label="Excluir tarefa">✕</button>
+          </div>
+        </article>
+
+        <article class="task-card" data-task-id="3">
+          <p class="task-title">Configurar debounce da busca</p>
+          <p class="task-meta">components · Event Loop</p>
+          <div class="task-actions">
+            <button type="button" data-action="complete" aria-label="Completar tarefa">✓</button>
+            <button type="button" data-action="edit" aria-label="Editar tarefa">✎</button>
+            <button type="button" data-action="delete" aria-label="Excluir tarefa">✕</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="column" data-status="doing">
+      <header class="column-header">
+        <h2>Doing</h2>
+        <span class="count-badge">2</span>
+      </header>
+      <div class="card-list">
+
+        <article class="task-card" data-task-id="4">
+          <p class="task-title">Layout estático do board</p>
+          <p class="task-meta">ui · Marco 1</p>
+          <div class="task-actions">
+            <button type="button" data-action="complete" aria-label="Completar tarefa">✓</button>
+            <button type="button" data-action="edit" aria-label="Editar tarefa">✎</button>
+            <button type="button" data-action="delete" aria-label="Excluir tarefa">✕</button>
+          </div>
+        </article>
+
+        <article class="task-card" data-task-id="5">
+          <p class="task-title">Desenhar Execution Console</p>
+          <p class="task-meta">ui · Event Loop</p>
+          <div class="task-actions">
+            <button type="button" data-action="complete" aria-label="Completar tarefa">✓</button>
+            <button type="button" data-action="edit" aria-label="Editar tarefa">✎</button>
+            <button type="button" data-action="delete" aria-label="Excluir tarefa">✕</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="column" data-status="done">
+      <header class="column-header">
+        <h2>Done</h2>
+        <span class="count-badge">2</span>
+      </header>
+      <div class="card-list">
+
+        <article class="task-card is-done" data-task-id="6">
+          <p class="task-title">Criar repositório e publicar esqueleto</p>
+          <p class="task-meta">setup · Marco 0</p>
+          <div class="task-actions">
+            <button type="button" data-action="complete" aria-label="Reabrir tarefa">↺</button>
+            <button type="button" data-action="delete" aria-label="Excluir tarefa">✕</button>
+          </div>
+        </article>
+
+        <article class="task-card is-done" data-task-id="7">
+          <p class="task-title">Escolher estrutura de pastas</p>
+          <p class="task-meta">setup · Marco 0</p>
+          <div class="task-actions">
+            <button type="button" data-action="complete" aria-label="Reabrir tarefa">↺</button>
+            <button type="button" data-action="delete" aria-label="Excluir tarefa">✕</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="execution-console" aria-label="Console de execução">
+    <div class="console-header">
+      <span class="console-dot" aria-hidden="true"></span>
+      <h2>Execution Console</h2>
+      <span class="console-hint">sync · microtask · macrotask — lógica real chega no Marco 2</span>
+    </div>
+    <ol class="console-log">
+      <li>
+        <span class="log-time">00:00.000</span>
+        <span class="log-tag tag-sync">sync</span>
+        <span class="log-msg">render() — board montado</span>
+      </li>
+      <li>
+        <span class="log-time">00:00.002</span>
+        <span class="log-tag tag-micro">micro</span>
+        <span class="log-msg">Promise.resolve().then() — placeholder</span>
+      </li>
+      <li>
+        <span class="log-time">00:00.050</span>
+        <span class="log-tag tag-macro">macro</span>
+        <span class="log-msg">setTimeout(fn, 0) — placeholder</span>
+      </li>
+    </ol>
+  </footer>
+
+</body>
+
+</html>
